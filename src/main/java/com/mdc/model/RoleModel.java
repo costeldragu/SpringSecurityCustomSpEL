@@ -10,12 +10,17 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
-@Table(name="roles")
-public class RoleModel {
+@Table(name = "roles")
+public class RoleModel implements Serializable {
+
+    private static final long serialVersionUID = -678459308073021475L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "role_id")
@@ -25,8 +30,35 @@ public class RoleModel {
     private String name;
 
     @OneToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "roles_permissions", joinColumns = @JoinColumn(name = "roles_id" ))
-    private List<PermissionModel> permissions;
+    @JoinTable(name = "roles_permissions", joinColumns = @JoinColumn(name = "roles_id"))
+    private Set<PermissionModel> permissions;
+
+    public long getRid() {
+        return rid;
+    }
+
+    public RoleModel setRid(long rid) {
+        this.rid = rid;
+        return this;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public RoleModel setName(String name) {
+        this.name = name;
+        return this;
+    }
+
+    public Set<PermissionModel> getPermissions() {
+        return permissions;
+    }
+
+    public RoleModel setPermissions(Set<PermissionModel> permissions) {
+        this.permissions = permissions;
+        return this;
+    }
 
     @Override
     public boolean equals(Object o) {

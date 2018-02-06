@@ -27,7 +27,7 @@ public class JpaConf {
     public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(restDataSource());
-        sessionFactory.setPackagesToScan("ro.mdc.model");
+        sessionFactory.setPackagesToScan("com.mdc.model");
         sessionFactory.setHibernateProperties(getHibernateProperties());
         return sessionFactory;
     }

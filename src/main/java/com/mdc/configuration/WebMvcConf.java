@@ -1,5 +1,6 @@
 package com.mdc.configuration;
 
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.PropertySources;
@@ -13,6 +14,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @EnableWebMvc
 @PropertySource("classpath:security.properties")
 @PropertySource("classpath:application.properties")
+@ComponentScan("com.mdc.web.controller")
 public class WebMvcConf implements WebMvcConfigurer {
 
     private final Environment env;
