@@ -35,7 +35,7 @@ public class ThymeleafConfig {
         SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
         templateResolver.setApplicationContext(applicationContext);
         templateResolver.setPrefix(env.getProperty("source.prefix"));
-        templateResolver.setSuffix("source.suffix");
+        templateResolver.setSuffix(env.getProperty("source.suffix"));
         templateResolver.setTemplateMode(TemplateMode.HTML);
         return templateResolver;
     }
