@@ -9,9 +9,10 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="permissions")
-public class PremissionModel {
+public class PermissionModel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "permission_id")
     private long pid;
 
     @Column(nullable = false)

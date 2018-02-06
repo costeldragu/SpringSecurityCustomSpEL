@@ -7,15 +7,15 @@ import javax.persistence.IdClass;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="users_roles")
-@IdClass(UsersRolesModel.class)
-public class UsersRolesModel {
+@Table(name = "roles_permissions")
+@IdClass(RolesPermissionsModel.class)
+public class RolesPermissionsModel {
 
-    @Column(name = "user_id")
     @Id
-    private Long uid;
+    @Column(name = "permission_id", nullable = false)
+    private Long pid;
 
-    @Column(name = "role_id")
     @Id
+    @Column(name = "role_id", nullable = false)
     private Long rid;
 }

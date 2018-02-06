@@ -1,6 +1,7 @@
 package com.mdc.initializer;
 
 import com.mdc.configuration.JavaConf;
+import com.mdc.configuration.JpaConf;
 import com.mdc.configuration.SecurityConf;
 import com.mdc.configuration.ThymeleafConfig;
 import com.mdc.configuration.WebMvcConf;
@@ -13,7 +14,7 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
 public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer implements WebApplicationInitializer {
 
     protected Class<?>[] getRootConfigClasses() {
-        return new Class[]{JavaConf.class, SecurityConf.class};
+        return new Class[]{JavaConf.class, JpaConf.class, SecurityConf.class};
     }
 
     protected Class<?>[] getServletConfigClasses() {
