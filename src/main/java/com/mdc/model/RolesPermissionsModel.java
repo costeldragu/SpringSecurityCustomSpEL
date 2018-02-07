@@ -9,26 +9,26 @@ import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
-@Table(name = "users_roles")
-@IdClass(UsersRolesModel.class)
-public class UsersRolesModel implements Serializable {
+@Table(name = "roles_permissions")
+@IdClass(RolesPermissionsModel.class)
+public class RolesPermissionsModel implements Serializable{
 
-    private static final long serialVersionUID = -2424576796443428026L;
+    private static final long serialVersionUID = 5957585284022861477L;
 
-    @Column(name = "user_id")
     @Id
-    private Long uid;
+    @Column(name = "permission_id", nullable = false)
+    private Long pid;
 
-    @Column(name = "role_id")
     @Id
+    @Column(name = "role_id", nullable = false)
     private Long rid;
 
-    public Long getUid() {
-        return uid;
+    public Long getPid() {
+        return pid;
     }
 
-    public UsersRolesModel setUid(Long uid) {
-        this.uid = uid;
+    public RolesPermissionsModel setPid(Long pid) {
+        this.pid = pid;
         return this;
     }
 
@@ -36,7 +36,7 @@ public class UsersRolesModel implements Serializable {
         return rid;
     }
 
-    public UsersRolesModel setRid(Long rid) {
+    public RolesPermissionsModel setRid(Long rid) {
         this.rid = rid;
         return this;
     }
@@ -45,14 +45,14 @@ public class UsersRolesModel implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        UsersRolesModel that = (UsersRolesModel) o;
-        return Objects.equals(uid, that.uid) &&
+        RolesPermissionsModel that = (RolesPermissionsModel) o;
+        return Objects.equals(pid, that.pid) &&
                 Objects.equals(rid, that.rid);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(uid, rid);
+        return Objects.hash(pid, rid);
     }
 }
