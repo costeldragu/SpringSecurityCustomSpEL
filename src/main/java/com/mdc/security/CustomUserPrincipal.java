@@ -1,11 +1,19 @@
 package com.mdc.security;
 
+import com.mdc.model.UserModel;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 
 public class CustomUserPrincipal implements UserDetails {
+
+    private final UserModel user;
+
+    public CustomUserPrincipal(UserModel user) {
+        this.user = user;
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return null;
@@ -39,5 +47,9 @@ public class CustomUserPrincipal implements UserDetails {
     @Override
     public boolean isEnabled() {
         return false;
+    }
+
+    public UserModel getUser() {
+        return user;
     }
 }
